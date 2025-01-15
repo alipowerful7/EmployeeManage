@@ -1,4 +1,5 @@
 ﻿using EmployeeManageApi.Models.DbContext;
+using EmployeeManageApi.Models.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,13 @@ namespace EmployeeManageApi.Controllers
         public async Task<IActionResult> GetAllEmployee()
         {
             return Ok(await _context.Employees.ToListAsync());
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddNewEmployee(Employee employee)
+        {
+            _context.Employees.Add(employee);
+            await _context.SaveChangesAsync();
+            return Ok(employee);
         }
     }
 }

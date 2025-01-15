@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "EmployeeManageApi.Controllers.EmployeeController",
+    "Method": "AddNewEmployee",
+    "RelativePath": "api/Employee/AddNewEmployee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employee",
+        "Type": "EmployeeManageApi.Models.Entities.Employee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeManageApi.Controllers.EmployeeController",
     "Method": "GetAllEmployee",
     "RelativePath": "api/Employee/GetAllEmployee",
     "HttpMethod": "GET",
