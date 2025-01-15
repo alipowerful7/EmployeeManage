@@ -20,6 +20,16 @@ namespace EmployeeManageApi.Controllers
         {
             return Ok(await _context.Employees.ToListAsync());
         }
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetEmployeeById(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return Ok(employee);
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewEmployee(Employee employee)
         {
