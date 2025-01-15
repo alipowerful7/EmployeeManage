@@ -49,5 +49,22 @@ namespace EmployeeManageApi.Controllers
             await _context.SaveChangesAsync();
             return Ok(employee);
         }
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateEmployee(int id, Employee employee)
+        {
+            var emp = await _context.Employees.FindAsync(id);
+            if (emp == null)
+            {
+                return NotFound();
+            }
+            emp.Name = employee.Name;
+            emp.LastName = employee.LastName;
+            emp.Phone = employee.Phone;
+            emp.Email = employee.Email;
+            emp.Salary = employee.Salary;
+            _context.Employees.Update(emp);
+            await _context.SaveChangesAsync();
+            return Ok(emp);
+        }
     }
 }
