@@ -27,5 +27,17 @@ namespace EmployeeManageApi.Controllers
             await _context.SaveChangesAsync();
             return Ok(employee);
         }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteEmployee(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            _context.Employees.Remove(employee);
+            await _context.SaveChangesAsync();
+            return Ok(employee);
+        }
     }
 }
