@@ -66,5 +66,12 @@ namespace EmployeeManageApi.Controllers
             await _context.SaveChangesAsync();
             return Ok(emp);
         }
+        [HttpGet("{searchString}")]
+        public IActionResult SearchEmployee(string? searchString)
+        {
+            searchString = searchString!.ToLower();
+            var employees = _context.Employees.Where(e => e.Name!.ToLower().Contains(searchString) || e.LastName!.ToLower().Contains(searchString) || e.Email!.ToLower().Contains(searchString) || e.Phone!.Contains(searchString));
+            return Ok(employees);
+        }
     }
 }
