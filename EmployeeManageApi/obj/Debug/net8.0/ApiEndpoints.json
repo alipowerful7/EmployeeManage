@@ -59,6 +59,22 @@
   },
   {
     "ContainingType": "EmployeeManageApi.Controllers.EmployeeController",
+    "Method": "SearchEmployee",
+    "RelativePath": "api/Employee/SearchEmployee/{searchString}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "searchString",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmployeeManageApi.Controllers.EmployeeController",
     "Method": "UpdateEmployee",
     "RelativePath": "api/Employee/UpdateEmployee/{id}",
     "HttpMethod": "PUT",
